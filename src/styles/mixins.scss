@@ -1,0 +1,16 @@
+@mixin css3-prefix($property, $value) {
+    -khtml-#{$property}: $value;
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+}
+
+@mixin calc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: -o-calc(#{$expression});
+    #{$property}: expression(#{$expression});
+    #{$property}: calc(#{$expression});
+}
