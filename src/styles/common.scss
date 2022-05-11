@@ -48,10 +48,10 @@
         overflow: $value;
     }
     .overflow-x-#{$value} {
-        overflow: $value;
+        overflow-x: $value;
     }
     .overflow-y-#{$value} {
-        overflow: $value;
+        overflow-y: $value;
     }
 }
 

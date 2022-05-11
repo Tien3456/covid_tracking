@@ -10,7 +10,7 @@ interface IProps {
 const DiseaseStatusItem: React.FC<IProps> = (props) => {
 
     return (
-        <div className="disease-status-item d-flex align-center justify-space-between py-16">
+        <div className="disease-status-item container d-flex align-center justify-space-between py-16">
             <div className="d-flex align-center">
                 <div className="d-flex align-center mr-16">
                     <div className="order d-flex align-center justify-center bg-white-main mr-3">

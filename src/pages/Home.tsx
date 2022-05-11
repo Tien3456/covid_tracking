@@ -11,13 +11,11 @@ const Home: React.FC<IProps> = (props) => {
 
   return (
     <div className="container-fluid bg-grey-main height-100-percent">
-      <div className="container">
         <CaseQuantities diseaseStatuses={ props.diseaseStatuses } />
         <DiseaseStatusList
           diseaseStatuses={ props.diseaseStatuses }
           showMore={ false }
         />
-      </div>
     </div>
   )
 }

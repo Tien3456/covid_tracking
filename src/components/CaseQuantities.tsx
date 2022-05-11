@@ -23,7 +23,7 @@ const CaseQuantities: React.FC<IProps> = (props) => {
     }, [JSON.stringify(props.diseaseStatuses)])
 
     return (
-        <div className="case-quantites py-32">
+        <div className="case-quantites container py-32">
             <div className="total-cases mb-24 txt-align-center">
                 <span className="txt-pink-dark-color font-size-36 font-weight-700 mb-4">
                     { caseQuantities.total }
