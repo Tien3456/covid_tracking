@@ -1,8 +1,21 @@
 import React from 'react'
+import { IDiseaseStatusOfCountry } from '../interfaces/diseaseStatus'
+import DiseaseStatusList from '../components/DiseaseStatusList'
 
-const Home = () => {
+interface IProps {
+  diseaseStatuses: IDiseaseStatusOfCountry[]
+}
+
+const Home: React.FC<IProps> = (props) => {
   return (
-    <div>Home</div>
+    <div className="container-fluid bg-grey-main height-100-percent">
+      <div className="container">
+        <DiseaseStatusList
+          diseaseStatuses={ props.diseaseStatuses }
+          showMore={ false }
+        />
+      </div>
+    </div>
   )
 }
 

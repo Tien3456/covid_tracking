@@ -8,30 +8,36 @@ import './styles/index.scss';
 
 function App() {
 
-  const [countries, setCountries] = useState<IDiseaseStatusOfCountry[]>([])
+  const [diseaseStatuses, setDiseaseStatuses] = useState<IDiseaseStatusOfCountry[]>([])
+  const [shouldUpdate, setShouldUpdate] = useState<boolean>(false)
 
-  const fetchGetCountries = useRef<null | ReturnType<typeof setInterval>>(null)
+  const setUpdate = useRef<null | ReturnType<typeof setInterval>>(null)
 
   useEffect(() => {
-    const MILLIS_UPDATING = 3 * 60 * 1000
-    fetchGetCountries.current = setInterval(() => {
-      covidTrackingRepository
-        .getAll()
-        .then(res => setCountries(res.data))
-        .catch(err => {})
-    }, MILLIS_UPDATING)
-
+    setUpdate.current = setInterval(() => {
+      setShouldUpdate(true)
+    }, 2000)
     return () => {
-      if(fetchGetCountries.current) {
-        clearInterval(fetchGetCountries.current)
+      if(setUpdate.current) {
+        clearInterval(setUpdate.current)
       }
     }
   }, [])
 
+  useEffect(() => {
+    if(shouldUpdate) {
+      setShouldUpdate(false)
+      covidTrackingRepository
+        .getAll()
+        .then(res => setDiseaseStatuses(res.data))
+        .catch(err => {})
+    }
+  }, [shouldUpdate])
+
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home diseaseStatuses={ diseaseStatuses } />} />
         <Route path="/search" element={<Search />} />
       </Routes>
     </div>

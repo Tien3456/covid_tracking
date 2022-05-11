@@ -1,4 +1,53 @@
 
+.txt-primary-color {
+    color: $txt-primary-color;
+}
+
+.txt-secondary-color {
+    color: $txt-secondary-color;
+}
+
+.txt-pink-dark-color {
+    color: $pink-dark;
+}
+
+.bg-grey-main {
+    background: $grey-main;
+}
+
+.bg-white-main {
+    background: $white-main;
+}
+
+.height-100-percent {
+    height: 100%;
+}
+
+.font-weight-700 {
+    font-weight: 700;
+}
+
+.line-height-0 {
+    line-height: 0;
+}
+
+@each $value in $overflowValues {
+    .overflow-#{$value} {
+        overflow: $value;
+    }
+    .overflow-x-#{$value} {
+        overflow: $value;
+    }
+    .overflow-y-#{$value} {
+        overflow: $value;
+    }
+}
+
+@for $i from 8 through 64 {
+    .font-size-#{$i} {
+        font-size: #{$i}px;
+    }
+}
 
 @for $i from 0 through 32 {
     .m-#{$i} {
@@ -71,7 +120,7 @@
 }
 
 .container-fluid {
-    max-width: 960px;
+    max-width: 840px;
     margin: auto;
 }
 

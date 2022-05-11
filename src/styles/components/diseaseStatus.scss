@@ -1,0 +1,10 @@
+
+
+.disease-status-list {
+    & .disease-status-item {
+        & .order {
+            width: 30px;
+            height: 24px;
+        }
+    }
+}
