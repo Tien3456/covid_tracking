@@ -1,16 +1,43 @@
-import React from 'react'
+import React, { SetStateAction, Dispatch, useEffect, useRef } from 'react'
 import { IDiseaseStatusOfCountry } from '../interfaces/diseaseStatus'
 import Moment from 'react-moment'
 
 interface IProps {
     diseaseStatus: IDiseaseStatusOfCountry,
-    showMore: boolean
+    isHomePage: boolean,
+    setStatusHeight?: Dispatch<SetStateAction<number>>,
+    listCoord?: {
+        top: number | undefined,
+        left: number | undefined
+    }
+    listWidth?: number,
+    isFixed?: boolean
 }
 
 const DiseaseStatusItem: React.FC<IProps> = (props) => {
 
+    const rootRef = useRef<null | HTMLDivElement>(null)
+
+    useEffect(() => {
+        if(props.setStatusHeight) {
+            props.setStatusHeight(rootRef.current?.scrollHeight || 0)
+        }
+    }, [])
+
     return (
-        <div className="disease-status-item container d-flex align-center justify-space-between py-16">
+        <div 
+            className={`disease-status-item container d-flex align-center justify-space-between py-16 ${props.listCoord && props.isFixed ? "position-fixed bg-grey-main" : ""}`}
+            ref={ rootRef }
+            style={
+                props.listCoord && props.isFixed
+                    ? {
+                        top: props.listCoord.top,
+                        left: props.listCoord.left,
+                        width: props.listWidth ? props.listWidth - 12 : "auto"
+                    }
+                    : {}
+            }
+        >
             <div className="d-flex align-center">
                 <div className="d-flex align-center mr-16">
                     <div className="order d-flex align-center justify-center bg-white-main mr-3">
@@ -31,7 +58,7 @@ const DiseaseStatusItem: React.FC<IProps> = (props) => {
                         </Moment>
                     </span>
                     {
-                        props.showMore &&
+                        !props.isHomePage &&
                             <div className="d-flex align-center mt-8">
                                 <div className="death-cases">
                                     <span className="txt-grey-dark-color font-size-14">Deaths:&nbsp;</span>

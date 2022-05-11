@@ -12,7 +12,7 @@
             @include css3-prefix(box-shadow, $box-shadow);
             @include input-placeholder {
                 color: $grey-dark;
-                font-size: 18;
+                font-size: 18px;
             }
         }
         & .icon-wrapper {

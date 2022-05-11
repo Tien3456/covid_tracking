@@ -143,6 +143,12 @@
     }
 }
 
+@each $position in $positions {
+    .position-#{$position} {
+        position: $position;
+    }
+}
+
 .container-fluid {
     max-width: 840px;
     margin: auto;
