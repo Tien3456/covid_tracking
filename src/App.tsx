@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import covidTrackingRepository from './repositories/CovidTrackingRepository'
 import { IDiseaseStatusOfCountry } from './interfaces/diseaseStatus'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Search from './pages/Search'
 
 function App() {
 
@@ -16,7 +19,7 @@ function App() {
         .then(res => setCountries(res.data))
         .catch(err => {})
     }, MILLIS_UPDATING)
-    
+
     return () => {
       if(fetchGetCountries.current) {
         clearInterval(fetchGetCountries.current)
@@ -26,7 +29,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search" element={<Search />} />
+      </Routes>
     </div>
   );
 }
