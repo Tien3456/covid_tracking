@@ -1,4 +1,5 @@
 export interface IDiseaseStatusOfCountry {
+    "index"?: number,
     "updated": number,
     "country": string,
     "countryInfo": {

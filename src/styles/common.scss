@@ -11,6 +11,14 @@
     color: $pink-dark;
 }
 
+.txt-grey-dark-color {
+    color: $grey-dark;
+}
+
+.txt-greyblue-main-color {
+    color: $greyblue-main
+}
+
 .bg-grey-main {
     background: $grey-main;
 }
@@ -29,6 +37,10 @@
 
 .line-height-0 {
     line-height: 0;
+}
+
+.txt-align-center {
+    text-align: center;
 }
 
 @each $value in $overflowValues {
@@ -98,6 +110,12 @@
     }
 }
 
+@for $i from 0 through 10 {
+    .opacity-#{$i} {
+        opacity: $i * 0.1;
+    }
+}
+
 @each $value in $displayValues {
     .d-#{$value} {
         display: $value;
@@ -116,6 +134,12 @@
 @each $value in $flexDirections {
     .direction-#{$value} {
         flex-direction: $value;
+    }
+}
+
+@each $value in $txtTransformValues {
+    .txt-transform-#{$value} {
+        text-transform: $value;
     }
 }
 
