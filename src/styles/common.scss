@@ -48,3 +48,38 @@
         padding-left: #{$i}px;
     }
 }
+
+@each $value in $displayValues {
+    .d-#{$value} {
+        display: $value;
+    }
+}
+
+@each $value in $flexBoxValues {
+    .justify-#{$value} {
+        justify-content: $value;
+    }
+    .align-#{$value} {
+        align-items: $value;
+    }
+}
+
+@each $value in $flexDirections {
+    .direction-#{$value} {
+        flex-direction: $value;
+    }
+}
+
+.container-fluid {
+    max-width: 960px;
+    margin: auto;
+}
+
+.container {
+    padding-left: spacing(2);
+    padding-right: spacing(2);
+    @include screen-md {
+        padding-left: spacing(3);
+        padding-right: spacing(3);
+    }
+}
