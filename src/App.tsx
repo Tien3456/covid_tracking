@@ -4,6 +4,7 @@ import { IDiseaseStatusOfCountry } from './interfaces/diseaseStatus'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Search from './pages/Search'
+import './styles/index.scss';
 
 function App() {
 
