@@ -61,7 +61,7 @@
     }
 }
 
-@for $i from 0 through 32 {
+@for $i from 0 through 64 {
     .m-#{$i} {
         margin: #{$i}px;
     }
