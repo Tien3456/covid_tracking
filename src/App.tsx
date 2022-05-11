@@ -4,10 +4,6 @@ import covidTrackingRepository from './repositories/CovidTrackingRepository'
 function App() {
 
   useEffect(() => {
-    covidTrackingRepository
-      .getAll()
-      .then(res => console.log(res))
-      .catch(err => {})
   }, [])
 
   return (

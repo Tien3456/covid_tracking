@@ -7,7 +7,7 @@ class CovidTrackingRepository extends AxiosClient {
     }
 
     getAll(): Promise<any> {
-        return this.get(String(process.env.REACT_APP_API_URL))
+        return this.get("")
     }
 }
 
