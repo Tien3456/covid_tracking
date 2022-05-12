@@ -26,13 +26,13 @@ const CaseQuantities: React.FC<IProps> = (props) => {
         <div className="case-quantites container py-32">
             <div className="total-cases mb-24 txt-align-center">
                 <span className="txt-pink-dark-color font-size-36 font-weight-700 mb-4">
-                    { caseQuantities.total }
+                    { caseQuantities.total.toLocaleString() }
                 </span>
             </div>
             <div className="d-flex align-center justify-center">
                 <div className="d-flex direction-column justify-center align-center mr-16">
                     <span className="txt-primary-color font-size-20 font-size-28 font-weight-700 mb-4">
-                        { caseQuantities.deaths }
+                        { caseQuantities.deaths.toLocaleString() }
                     </span>
                     <span className="txt-greyblue-main-color txt-transform-uppercase font-size-18 font-weight-700">
                         Deaths
@@ -40,7 +40,7 @@ const CaseQuantities: React.FC<IProps> = (props) => {
                 </div>
                 <div className="d-flex direction-column justify-center align-center">
                     <span className="txt-primary-color font-size-20 font-size-28 font-weight-700 mb-4">
-                        { caseQuantities.recoveries }
+                        { caseQuantities.recoveries.toLocaleString() }
                     </span>
                     <span className="txt-greyblue-main-color txt-transform-uppercase font-size-18 font-weight-700">
                         Recoveries

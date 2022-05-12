@@ -62,18 +62,18 @@ const DiseaseStatusItem: React.FC<IProps> = (props) => {
                             <div className="d-flex align-center mt-8">
                                 <div className="death-cases">
                                     <span className="txt-grey-dark-color font-size-14">Deaths:&nbsp;</span>
-                                    <span className="txt-pink-dark-color font-size-14">{ props.diseaseStatus.deaths }</span>
+                                    <span className="txt-pink-dark-color font-size-14">{ props.diseaseStatus.deaths.toLocaleString() }</span>
                                 </div>
                                 <div className="recovered-cases ml-16">
                                     <span className="txt-grey-dark-color font-size-14">Recoveries:&nbsp;</span>
-                                    <span className="txt-pink-dark-color font-size-14">{ props.diseaseStatus.recovered }</span>
+                                    <span className="txt-pink-dark-color font-size-14">{ props.diseaseStatus.recovered.toLocaleString() }</span>
                                 </div>
                             </div>
                     }
                 </div>
             </div>
             <span className="txt-pink-dark-color font-size-18 font-weight-700">
-                { props.diseaseStatus.cases }
+                { props.diseaseStatus.cases.toLocaleString() }
             </span>
         </div>
     )
