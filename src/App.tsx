@@ -21,9 +21,10 @@ function App() {
   const headerRef = useRef<null | HTMLElement>(null)
 
   useEffect(() => {
+    const MILLIS_UPDATING = 3 * 60 * 1000
     setUpdate.current = setInterval(() => {
       setShouldUpdate(true)
-    }, 2000)
+    }, MILLIS_UPDATING)
 
     setHeaderHeight(headerRef.current?.scrollHeight)
 
