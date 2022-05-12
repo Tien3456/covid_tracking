@@ -36,16 +36,6 @@ const DiseaseStatusList: React.FC<IProps> = (props) => {
         setWidth(rootRef.current?.scrollWidth)
     }, [])
 
-    const sortedDiseaseStatuses = useMemo(() => {
-        const sortedList = props.diseaseStatuses.sort((firstEl, secondEl) => secondEl.cases - firstEl.cases)
-                                .map((el, i) => ({ ...el, index: i + 1}))
-        const vn_status = sortedList.find(status => status.country.toLowerCase() === "vietnam")
-        if(vn_status) {
-            sortedList.unshift(vn_status)
-        }
-        return sortedList
-    }, [JSON.stringify(props.diseaseStatuses)])
-
     const onScroll = (e: React.UIEvent<HTMLDivElement>) => {
         e.currentTarget.scrollTop > 30
             ? setFixedFirstChild(true)
@@ -63,7 +53,7 @@ const DiseaseStatusList: React.FC<IProps> = (props) => {
             onScroll={ onScroll }
         >
             {
-                sortedDiseaseStatuses.slice(0, 11).map((status, i) => (
+                props.diseaseStatuses.slice(0, 11).map((status, i) => (
                     <DiseaseStatusItem
                         key={ i }
                         diseaseStatus={ status }

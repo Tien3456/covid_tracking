@@ -74,7 +74,15 @@ function App() {
               />
             } 
           />
-          <Route path="search" element={<Search />} />
+          <Route 
+            path="search" 
+            element={
+              <Search 
+                diseaseStatuses={ diseaseStatuses }
+                listHeight={ windowSize.height && headerHeight ? windowSize.height - headerHeight : undefined }
+              />
+            } 
+          />
         </Route>
       </Routes>
     </div>
