@@ -19,7 +19,9 @@ const Search: React.FC<IProps> = (props) => {
   const filterListByCountry = useCallback(() => {
     if(countryParam) {
       const pattern = new RegExp(countryParam, 'i')
-      const filteredList = props.diseaseStatuses.filter(status => pattern.test(status.country))
+      const sortedList = props.diseaseStatuses.sort((firstEl, secondEl) => secondEl.cases - firstEl.cases)
+                              .map((status, i) => ({...status, index: i + 1}))
+      const filteredList = sortedList.filter(status => pattern.test(status.country))
       setSearchedList(filteredList)
     }
   }, [countryParam])

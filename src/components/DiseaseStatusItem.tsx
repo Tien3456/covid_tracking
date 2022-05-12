@@ -26,16 +26,18 @@ const DiseaseStatusItem: React.FC<IProps> = (props) => {
 
     return (
         <div 
-            className={`disease-status-item container d-flex align-center justify-space-between py-16 ${props.listCoord && props.isFixed ? "position-fixed bg-grey-main" : ""}`}
+            className={`disease-status-item container d-flex align-center justify-space-between py-16 overflow-x-hidden ${props.listCoord && props.isFixed ? "position-fixed bg-grey-main" : ""}`}
             ref={ rootRef }
             style={
                 props.listCoord && props.isFixed
                     ? {
-                        top: props.listCoord.top,
+                        top: props.listCoord.top && props.listCoord.top + 24,
                         left: props.listCoord.left,
                         width: props.listWidth ? props.listWidth - 12 : "auto"
                     }
-                    : {}
+                    : {
+                        width: "100%"
+                    }
             }
         >
             <div className="d-flex align-center">

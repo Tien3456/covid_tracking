@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react'
 import DiseaseStatusItem from './DiseaseStatusItem'
 import { IDiseaseStatusOfCountry } from '../interfaces/diseaseStatus'
-import { flattenDiagnosticMessageText } from 'typescript'
+import useDimension from '../hooks/useDimension'
 
 interface IProps {
     diseaseStatuses: IDiseaseStatusOfCountry[],
@@ -25,16 +25,23 @@ const DiseaseStatusList: React.FC<IProps> = (props) => {
     })
     const [width, setWidth] = useState<number | undefined>()
     const [fixedFirstChild, setFixedFirstChild] = useState<boolean>(false)
+    const windowSize = useDimension()
 
     const rootRef = useRef<null | HTMLDivElement>(null)
 
     useEffect(() => {
+        const width = rootRef.current?.getBoundingClientRect()?.width
+        const height = rootRef.current?.getBoundingClientRect()?.height
         setCoord({
-            top: rootRef.current?.getBoundingClientRect()?.top,
-            left: rootRef.current?.getBoundingClientRect()?.left
+            top: height && windowSize.height && windowSize.height - height,
+            left: width && windowSize.width && (windowSize.width - width) / 2
         })
-        setWidth(rootRef.current?.scrollWidth)
-    }, [])
+        setWidth(width)
+    }, [windowSize.width, windowSize.height])
+
+    useEffect(() => {
+        console.log(coord)
+    }, [coord])
 
     const onScroll = (e: React.UIEvent<HTMLDivElement>) => {
         e.currentTarget.scrollTop > 30

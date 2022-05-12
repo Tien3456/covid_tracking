@@ -21,14 +21,16 @@ function App() {
   const headerRef = useRef<null | HTMLElement>(null)
 
   useEffect(() => {
-    setHeaderHeight(headerRef.current?.scrollHeight)
-
     return () => {
       if(setUpdate.current) {
         clearTimeout(setUpdate.current)
       }
     }
   }, [])
+
+  useEffect(() => {
+    setHeaderHeight(headerRef.current?.scrollHeight)
+  }, [windowSize.width, windowSize.height])
 
   useEffect(() => {
     if(shouldUpdate) {
