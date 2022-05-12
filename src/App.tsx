@@ -54,7 +54,7 @@ function App() {
     >
       <Routes>
         <Route 
-          path="/"
+          path="/covid_tracking/"
           element={
             <div className="container-fluid bg-grey-main height-100-percent">
               <header ref={ headerRef }>
