@@ -44,7 +44,7 @@ const DiseaseStatusList: React.FC<IProps> = (props) => {
 
     return (
         <div 
-            className="disease-status-list mt-24 position-relative pb-36 bg-grey-main overflow-y-auto" 
+            className="disease-status-list mt-24 position-relative pb-36 bg-grey-main overflow-x-hidden overflow-y-auto" 
             style={{ 
                 height: props.height || "auto",
                 paddingTop: props.isHomePage && fixedFirstChild ? statusHeight : 0
