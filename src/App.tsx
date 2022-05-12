@@ -12,7 +12,7 @@ import './styles/index.scss';
 function App() {
 
   const [diseaseStatuses, setDiseaseStatuses] = useState<IDiseaseStatusOfCountry[]>([])
-  const [shouldUpdate, setShouldUpdate] = useState<boolean>(false)
+  const [shouldUpdate, setShouldUpdate] = useState<boolean>(true)
   const [headerHeight, setHeaderHeight] = useState<number | undefined>()
   
   const windowSize = useDimension()
@@ -21,16 +21,11 @@ function App() {
   const headerRef = useRef<null | HTMLElement>(null)
 
   useEffect(() => {
-    const MILLIS_UPDATING = 3 * 60 * 1000
-    setUpdate.current = setInterval(() => {
-      setShouldUpdate(true)
-    }, MILLIS_UPDATING)
-
     setHeaderHeight(headerRef.current?.scrollHeight)
 
     return () => {
       if(setUpdate.current) {
-        clearInterval(setUpdate.current)
+        clearTimeout(setUpdate.current)
       }
     }
   }, [])
@@ -42,6 +37,10 @@ function App() {
         .getAll()
         .then(res => setDiseaseStatuses(res.data))
         .catch(err => {})
+    } else {
+      setUpdate.current = setTimeout(() => {
+        setShouldUpdate(true)
+      }, 3 * 60 * 1000)
     }
   }, [shouldUpdate])
 
