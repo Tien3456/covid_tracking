@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/covid_tracking/static/css/main.e34be6ae.css",
+    "main.js": "/covid_tracking/static/js/main.503c779a.js",
+    "index.html": "/covid_tracking/index.html",
+    "main.e34be6ae.css.map": "/covid_tracking/static/css/main.e34be6ae.css.map",
+    "main.503c779a.js.map": "/covid_tracking/static/js/main.503c779a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e34be6ae.css",
+    "static/js/main.503c779a.js"
+  ]
+}
