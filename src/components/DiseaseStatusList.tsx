@@ -39,10 +39,6 @@ const DiseaseStatusList: React.FC<IProps> = (props) => {
         setWidth(width)
     }, [windowSize.width, windowSize.height])
 
-    useEffect(() => {
-        console.log(coord)
-    }, [coord])
-
     const onScroll = (e: React.UIEvent<HTMLDivElement>) => {
         e.currentTarget.scrollTop > 30
             ? setFixedFirstChild(true)
@@ -66,6 +62,7 @@ const DiseaseStatusList: React.FC<IProps> = (props) => {
                         diseaseStatus={ status }
                         isHomePage={ props.isHomePage }
                         setStatusHeight={ props.isHomePage &&  status.country.toLowerCase() === 'vietnam' ? setStatusHeight : undefined }
+                        isXs={ windowSize.width && windowSize.width < 576 ? true : false }
                         listCoord={ props.isHomePage && status.country.toLowerCase() === 'vietnam' ? coord : undefined }
                         listWidth={ props.isHomePage && status.country.toLowerCase() === 'vietnam' ? width : undefined }
                         isFixed={ props.isHomePage && status.country.toLowerCase() === 'vietnam' ? fixedFirstChild : undefined }

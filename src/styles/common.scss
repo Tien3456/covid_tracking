@@ -43,6 +43,10 @@
     text-align: center;
 }
 
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
 @each $value in $overflowValues {
     .overflow-#{$value} {
         overflow: $value;

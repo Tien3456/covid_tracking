@@ -10,8 +10,9 @@ interface IProps {
         top: number | undefined,
         left: number | undefined
     }
+    isXs: boolean,
     listWidth?: number,
-    isFixed?: boolean
+    isFixed?: boolean,
 }
 
 const DiseaseStatusItem: React.FC<IProps> = (props) => {
@@ -26,7 +27,7 @@ const DiseaseStatusItem: React.FC<IProps> = (props) => {
 
     return (
         <div 
-            className={`disease-status-item container d-flex align-center justify-space-between py-16 overflow-x-hidden ${props.listCoord && props.isFixed ? "position-fixed bg-grey-main" : ""}`}
+            className={`disease-status-item container d-flex align-center justify-space-between py-16 ${props.listCoord && props.isFixed ? "position-fixed bg-grey-main" : ""}`}
             ref={ rootRef }
             style={
                 props.listCoord && props.isFixed
@@ -48,33 +49,33 @@ const DiseaseStatusItem: React.FC<IProps> = (props) => {
                     <img 
                         src={ props.diseaseStatus.countryInfo.flag }
                         alt="flag"
-                        width={ 40 }
-                        height={ 24 }
+                        width={ props.isXs ? 36 : 40 }
+                        height={ props.isXs ? 22 : 24 }
                     />
                 </div>
                 <div className="d-flex direction-column justify-center">
-                    <span className="txt-primary-color mb-8 font-size-18 font-weight-700">{ props.diseaseStatus.country }</span>
-                    <span className="txt-secondary-color font-size-14">
+                    <span className={`txt-primary-color mb-8 font-size-${props.isXs ? "14" : "18"} font-weight-700`}>{ props.diseaseStatus.country }</span>
+                    <span className={`txt-secondary-color font-size-${props.isXs ? "12" : "14"}`}>
                         <Moment fromNow>
                             { new Date(props.diseaseStatus.updated) }
                         </Moment>
                     </span>
                     {
                         !props.isHomePage &&
-                            <div className="d-flex align-center mt-8">
-                                <div className="death-cases">
-                                    <span className="txt-grey-dark-color font-size-14">Deaths:&nbsp;</span>
-                                    <span className="txt-pink-dark-color font-size-14">{ props.diseaseStatus.deaths.toLocaleString() }</span>
+                            <div className={`d-flex ${props.isXs ? "direction-column" : ""} mt-8`}>
+                                <div className="death-cases mr-16">
+                                    <span className={`txt-grey-dark-color font-size-${props.isXs ? "12" : "14"}`}>Deaths:&nbsp;</span>
+                                    <span className={`txt-pink-dark-color font-size-${props.isXs ? "12" : "14"}`}>{ props.diseaseStatus.deaths.toLocaleString() }</span>
                                 </div>
-                                <div className="recovered-cases ml-16">
-                                    <span className="txt-grey-dark-color font-size-14">Recoveries:&nbsp;</span>
-                                    <span className="txt-pink-dark-color font-size-14">{ props.diseaseStatus.recovered.toLocaleString() }</span>
+                                <div className="recovered-cases">
+                                    <span className={`txt-grey-dark-color font-size-${props.isXs ? "12" : "14"}`}>Recoveries:&nbsp;</span>
+                                    <span className={`txt-pink-dark-color font-size-${props.isXs ? "12" : "14"}`}>{ props.diseaseStatus.recovered.toLocaleString() }</span>
                                 </div>
                             </div>
                     }
                 </div>
             </div>
-            <span className="txt-pink-dark-color font-size-18 font-weight-700">
+            <span className={`txt-pink-dark-color font-size-${props.isXs ? "14" : "18"} font-weight-700`}>
                 { props.diseaseStatus.cases.toLocaleString() }
             </span>
         </div>
