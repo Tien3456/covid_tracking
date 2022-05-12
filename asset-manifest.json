@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/covid_tracking/static/css/main.e34be6ae.css",
-    "main.js": "/covid_tracking/static/js/main.242e5d08.js",
+    "main.js": "/covid_tracking/static/js/main.abb524fc.js",
     "index.html": "/covid_tracking/index.html",
     "main.e34be6ae.css.map": "/covid_tracking/static/css/main.e34be6ae.css.map",
-    "main.242e5d08.js.map": "/covid_tracking/static/js/main.242e5d08.js.map"
+    "main.abb524fc.js.map": "/covid_tracking/static/js/main.abb524fc.js.map"
   },
   "entrypoints": [
     "static/css/main.e34be6ae.css",
-    "static/js/main.242e5d08.js"
+    "static/js/main.abb524fc.js"
   ]
 }
